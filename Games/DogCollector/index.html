@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Dog Collector</title>
+  <script type="text/javascript">
+    var ran;
+
+    function increScore() {
+      var score = document.getElementById("score");
+      score.innerHTML = Number.parseInt(score.innerHTML) + Math.floor(Math.random() * 13);
+      if (score.innerHTML == ran) {
+        document.getElementById("win").innerHTML = Number.parseInt(win.innerHTML) + 1;
+        var score = document.getElementById("score");
+        score.innerHTML = 0;
+        document.getElementById("number").innerHTML = Math.floor(Math.random() * 100);
+      } else if (score.innerHTML > ran) {
+        var score = document.getElementById("score");
+        score.innerHTML = 0;
+        document.getElementById("lose").innerHTML = Number.parseInt(lose.innerHTML) + 1;
+        document.getElementById("number").innerHTML = Math.floor(Math.random() * 100);
+      }
+    }
+
+    function random() {
+      ran = document.getElementById("number").innerHTML = Math.floor(Math.random() * 100);
+    }
+  </script>
+  <style>
+    #bj,
+    #karma,
+    #maebe,
+    #parker {
+      width: 150px;
+    }
+
+    .table {
+      float: left;
+    }
+
+    .paragraph {
+      float: left;
+    }
+
+    #number {
+      float: left;
+      margin-left: 410px;
+    }
+
+    #h3 {
+      margin-left: 500px;
+    }
+
+    #score {
+      margin-left: 570px;
+    }
+  </style>
+</head>
+
+<body onload="random()">
+  <center>
+    <h1><Strong>Dog Collector</strong></h1>
+  </center>
+  <h1 id="number">50</h1>
+  <h3 id="h3">Your total score:</h3>
+  <h1 id="score">0</h1>
+  <div class="paragraph">
+    <p>You will be given a random number at the start of the game.</p>
+    <p>To win you must match that number without going over.</p>
+    <p>To collect points, click on any of the following four dogs.</p>
+    <p>Each dog is worth an amount between 0 and 12.</p>
+    <p>The value of each dog is hidden from you until you click on it,</p>
+    <p>and each time the games starts, the value of each dog will change.</p>
+    <p> Have fun!<p>
+  </div>
+  <div class="table">
+    <img src="karma.jpg" alt="img not available" onclick="increScore()" id="karma">
+    <img src="maebe.jpg" alt="img not available" onclick="increScore()" id="maebe">
+    <img src="parker.jpg" alt="img not available" onclick="increScore()" id="parker">
+    <img src="bj.jpg" alt="img not available" onclick="increScore()" id="bj">
+  </div><br>
+  <h1 style="margin:0;display:inline">Wins :</h1>
+  <h1 style="margin:0;display:inline" id="win">0</h1><br><br>
+  <h1 style="margin:0;display:inline">Losses :</h1>
+  <h1 style="margin:0;display:inline" id="lose">0</h1>
+
+</html>

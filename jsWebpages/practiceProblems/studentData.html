@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>StudentData</title>
+  <script type="text/javascript">
+    function loadFunction() {
+      var tableData = document.getElementById("StudentData");
+      var td = "<tr><td>veera</td><td>Dcme</td></tr>";
+      tableData.innerHTML=tableData.innerHTML + td;
+    }
+  </script>
+</head>
+<body>
+  <table border=2px>
+    <tr>
+      <td>Name</td>
+      <td>Branch</td>
+    </tr>
+    <tbody id="StudentData">
+      <td>Raji</td>
+      <td>Dcme</td>
+    </tbody>
+  </table>
+  <button type="button" onclick="loadFunction()">Click me</button><br><br>
+</body>
+</html>
