@@ -1,0 +1,32 @@
+<html>
+<head>
+  <title>
+    HangMan Excited to play
+  </title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="dom.js"></script>
+</head>
+<body>
+    <div id="data">
+  <form>
+  <h2 class="content">Select Content</h2>
+  <select id="Items" class="select">
+    <option value="Vegetables">Vegetables</option>
+    <option value="Animals">Animals</option>
+    <option value="Fruits">Fruits</option>
+  </select>
+</form>
+  <br><br>
+  <button type="button" class ="button" onclick="gameStart()">play</button>
+</div>
+<div id="text" style="display:none">
+  <h1 id="some_div">Timer</h1>
+  <h1 id="pattern">Pattern</h1>
+  <form>
+  <input type="text" id="input">
+  <button type="button" id ="button" onclick="check()">Submit</button>
+</form>
+</div>
+</div>
+</body>
+</html>

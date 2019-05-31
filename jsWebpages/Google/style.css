@@ -1,0 +1,51 @@
+.head{
+  text-align:center;
+  font-family: Arial;
+  font-size: 40px;
+  padding-top: 140px;
+  padding-right:150px;
+}
+.blue{
+color:#6698FF;}
+
+.red{
+  color:#C11B17;
+}
+
+.yellow{
+  color:#FFF380;
+}
+
+.green{
+  color:#4CC552;
+}
+
+.hr{
+  margin-top:30px;
+  height: 1px;
+}
+
+.gmail{
+  margin-left:1300px;
+}
+
+.images{
+  margin-left:30px;
+}
+
+
+.icon{
+  width:2%;
+  margin-top:15px;
+  margin-left:20px;
+}
+
+.searchbar{
+  margin-left:500px;
+  width:400px;
+  height:40px;
+}
+
+.search_button{
+  margin-left:650px;
+}
