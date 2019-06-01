@@ -4,24 +4,49 @@
   <meta charset="utf-8">
   <title>StudentData</title>
   <script type="text/javascript">
-    function loadFunction() {
+  var StdData=[];
+    function displayData(name,branch) {
       var tableData = document.getElementById("StudentData");
-      var td = "<tr><td>veera</td><td>Dcme</td></tr>";
+      tableData.innerHTML="";
+      var td = "<tr><td>"+ name +"</td><td>"+branch+"</td></tr>";
       tableData.innerHTML=tableData.innerHTML + td;
     }
+    function Add(){
+      var name = document.getElementById("name");
+      var branch = document.getElementById("branch");
+      StdData.push(name.value);
+      StdData.push(branch.value);
+      alert("sucessfully Added");
+    }
+
+    function search(){
+         var name=document.getElementById("text");
+         for( var index=0;index<StdData.length;index+=2){
+            if(name.value==StdData[index]){
+               return  displayData(StdData[index],StdData[index+1])
+            }
+    }
+    alert("not found");
+}
+
+
+
+
   </script>
 </head>
 <body>
+  <input type="text" id="text">
+  <button type="button" onclick="search()">SearchByName</button><br><br>
+  Name:<input type="text" id="name">
+  Branch:<input type="text" id="branch">
+  <button type="button" onclick="Add()">Add New One</button><br><br>
   <table border=2px>
     <tr>
       <td>Name</td>
       <td>Branch</td>
     </tr>
     <tbody id="StudentData">
-      <td>Raji</td>
-      <td>Dcme</td>
     </tbody>
   </table>
-  <button type="button" onclick="loadFunction()">Click me</button><br><br>
 </body>
 </html>
