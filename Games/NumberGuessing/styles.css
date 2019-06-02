@@ -1,0 +1,17 @@
+#content {
+  border-style: solid;
+  margin-top: 300px;
+  margin-left: 500px;
+  text-align: center;
+  padding-bottom: 200px;
+  background-color: 	#FFF8DC;
+  width: 500px;
+}
+
+#text {
+  width: 250px;
+}
+
+body {
+  background-color:#6495ED;
+}
