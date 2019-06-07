@@ -11,9 +11,8 @@ GAME RULES:
 
 var globalScore, dice, currentScore, activePlayer = 0,
   gameActive = 1,
-  previousDiceValue = 0,
   diceValue = 0,
-  defaultWinningScore = 10;
+  dice1value, dice2Value;
 
 function whoPlays() {
   return activePlayer ? 1 : 0;
@@ -22,36 +21,17 @@ function whoPlays() {
 
 function diceValueAndImage() {
   if (gameActive) {
-    var diceValue = (Math.floor(Math.random() * 6) + 1);
-    var image = document.getElementById("dice");
-    switch (diceValue) {
-      case 1:
-        image.src = "dice-1.png";
-        break;
-      case 2:
-        image.src = "dice-2.png";
-        break;
-      case 3:
-        image.src = "dice-3.png";
-        break;
-      case 4:
-        image.src = "dice-4.png";
-        break;
-      case 5:
-        image.src = "dice-5.png";
-        break;
-      case 6:
-        image.src = "dice-6.png";
-        break;
-    }
-    return diceValue;
+    dice1Value = (Math.floor(Math.random() * 6) + 1);
+    dice2Value = (Math.floor(Math.random() * 6) + 1);
+    document.getElementById("dice")
+      .src = 'dice-' + dice1Value + '.png';
+    document.getElementById("dice1")
+      .src = 'dice-' + dice2Value + '.png';
   }
 }
 
 
 function roll() {
-  winningScore = document.getElementById("winningScore")
-    .value;
   if (gameActive) {
     var player;
     if (whoPlays()) {
@@ -64,24 +44,15 @@ function roll() {
       name = "name-0"
     }
     var currentScore = document.getElementById(player);
-    previousDiceValue = diceValue;
-    diceValue = diceValueAndImage();
-    if (diceValue == 1) {
+    diceValueAndImage();
+    if (dice1Value == 1 || dice2Value == 1) {
       currentScore.innerHTML = 0;
-      if (activePlayer == 0)
-        activePlayer = 1;
-      else
-        activePlayer = 0;
-    } else if ((diceValue == 6) && (previousDiceValue == 6)) {
-      currentScore.innerHTML = 0;
-      var globalSco = document.getElementById(score);
-      globalSco.innerHTML = 0;
       if (activePlayer == 0)
         activePlayer = 1;
       else
         activePlayer = 0;
     } else {
-      currentScore.innerHTML = Number.parseInt(currentScore.innerHTML) + diceValue;
+      currentScore.innerHTML = Number.parseInt(currentScore.innerHTML) + dice1Value + dice2Value;
     }
   }
 }
@@ -104,20 +75,19 @@ function hold() {
     globalScore = Number.parseInt(globalSco.innerHTML) + Number.parseInt(currentScore.innerHTML);
     globalSco.innerHTML = globalScore;
     currentScore.innerHTML = 0;
-    if (winningScore == " ")
-      winningScore = defaultWinningScore;
-    if (globalScore >= (+winningScore)) {
+    if (globalScore >= 10) {
       var win = document.getElementById(name);
       win.innerHTML = "WINNER";
       gameActive = 0;
+      document.getElementById("dice")
+        .src = 'start.png';
+      document.getElementById("dice1")
+        .src = 'start.png';
     }
   }
 }
 
-function winningScore(winningScore) {
-  if ((winningScore == 0) || (winningScore == " "))
-    return 10;
-}
+
 
 function newGame() {
   var currentScore0 = document.getElementById("current-0");
@@ -139,6 +109,8 @@ function newGame() {
   else
     win.innerHTML = "PLAYER 2";
   var image = document.getElementById("dice");
+  image.src = "start.png";
+  var image = document.getElementById("dice1");
   image.src = "start.png";
   gameActive = 1;
 }
